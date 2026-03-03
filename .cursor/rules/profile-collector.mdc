@@ -38,6 +38,7 @@ alwaysApply: true
 | 「新增维度」「删除维度」「修改维度」「调整画像结构」 | `.cursor/skills/modify-profile-schema/SKILL.md` |
 | 「从 AI 记忆导入」「根据 ChatGPT 记忆」「我有 AI 记忆」「生成提示词」 | `.cursor/skills/generate-ai-memory-prompt/SKILL.md` |
 | 「整合 AI 回复」「导入 AI 的回答」「把这段内容写进画像」（用户粘贴了 AI 的回复内容） | `.cursor/skills/import-ai-memory/SKILL.md` |
+| 「生成论坛画像」「数字分身」「导出论坛档案」 | `.cursor/skills/generate-forum-profile/SKILL.md` |
 
 ## 通用操作规则
 
