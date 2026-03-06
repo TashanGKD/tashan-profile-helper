@@ -16,6 +16,9 @@ export function ProfilePanel({
 
   return (
     <div className="profile-panel">
+      <section className="profile-safety-notice">
+        用户画像仅在本次对话中临时生成。系统不会在任何位置保存该画像或您的任何隐私信息。您可以自行下载并本地保存。
+      </section>
       <section className="profile-section">
         <h3>发展画像</h3>
         <div className="profile-content">
