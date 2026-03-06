@@ -12,9 +12,8 @@ export function DownloadButton({ sessionId, disabled }: DownloadButtonProps) {
     <a
       href={url}
       download="profile.md"
-      className="download-btn"
+      className={`download-btn ${disabled ? "download-btn-disabled" : ""}`}
       aria-disabled={disabled}
-      style={{ pointerEvents: disabled ? "none" : undefined }}
     >
       下载画像
     </a>

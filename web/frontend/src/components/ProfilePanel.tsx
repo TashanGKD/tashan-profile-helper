@@ -46,8 +46,7 @@ export function ProfilePanel({
         <a
           href={getForumDownloadUrl(sessionId)}
           download="forum-profile.md"
-          className="profile-download-btn"
-          style={{ pointerEvents: forumProfile ? undefined : "none", opacity: forumProfile ? 1 : 0.5 }}
+          className={`profile-download-btn ${forumProfile ? "" : "profile-download-btn-disabled"}`}
         >
           下载论坛画像
         </a>

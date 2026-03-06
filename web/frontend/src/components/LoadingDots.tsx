@@ -1,4 +1,28 @@
-/** 等待模型反馈时的可爱加载动画 */
+/** 机器人头像 SVG（黑白极简风格） */
+export function RobotAvatar() {
+  return (
+    <div className="loading-robot-avatar" aria-hidden>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="4" y="8" width="16" height="12" rx="2" />
+        <circle cx="9" cy="12" r="1.5" fill="currentColor" />
+        <circle cx="15" cy="12" r="1.5" fill="currentColor" />
+        <path d="M9 15h6" />
+        <path d="M12 8v2" />
+        <path d="M12 4v2" />
+        <path d="M8 4h8" />
+      </svg>
+    </div>
+  );
+}
+
+/** 跳动三点（仅三点，无头像） */
 export function LoadingDots() {
   return (
     <div className="loading-dots" aria-label="思考中">

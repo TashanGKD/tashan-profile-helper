@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageBubble } from "./MessageBubble";
-import { LoadingDots } from "./LoadingDots";
+import { LoadingDots, RobotAvatar } from "./LoadingDots";
 import { ProfilePanel } from "./ProfilePanel";
 import {
   getOrCreateSession,
@@ -176,12 +176,25 @@ export function ChatWindow() {
               <p>你可以说「帮我建立画像」开始，或直接描述你的需求。</p>
             </div>
           )}
-          {messages.map((m, i) => (
-            <MessageBubble key={i} role={m.role} content={m.content} />
-          ))}
+          {messages
+            .filter(
+              (m, i) =>
+                !(
+                  showLoadingDots &&
+                  i === messages.length - 1 &&
+                  m.role === "assistant" &&
+                  m.content === ""
+                )
+            )
+            .map((m, i) => (
+              <MessageBubble key={i} role={m.role} content={m.content} />
+            ))}
           {showLoadingDots && (
-            <div className="message-bubble assistant loading-bubble">
-              <LoadingDots />
+            <div className="loading-message-row">
+              <RobotAvatar />
+              <div className="message-bubble assistant loading-bubble">
+                <LoadingDots />
+              </div>
             </div>
           )}
           <div ref={messagesEndRef} />

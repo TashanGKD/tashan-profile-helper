@@ -9,6 +9,8 @@
 
 # Dependencies
 node_modules/
+__pycache__/
+*.pyc
 web/frontend/dist/
 
 # Environment files（含 API Key，切勿提交）
