@@ -48,7 +48,7 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "read_profile",
-            "description": "获取当前会话中的画像内容。每次开始任务前先调用，了解当前填写进度和采集阶段。",
+            "description": "获取当前会话中的科研数字分身内容。每次开始任务前先调用，了解当前填写进度和采集阶段。",
             "parameters": {"type": "object", "properties": {}},
         },
     },
@@ -56,13 +56,13 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "write_profile",
-            "description": "将发展画像内容写入会话。采集到数据后必须调用此工具保存，不要只在对话中展示而不保存。",
+            "description": "将科研数字分身内容写入会话。采集到数据后必须调用此工具保存，不要只在对话中展示而不保存。",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "content": {
                         "type": "string",
-                        "description": "完整的发展画像 Markdown 内容",
+                        "description": "完整的科研数字分身 Markdown 内容",
                     }
                 },
                 "required": ["content"],
@@ -73,13 +73,13 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "write_forum_profile",
-            "description": "将论坛画像（数字分身）写入会话。当用户确认「生成论坛画像」并完成隐私设置后，用此工具保存论坛画像内容。",
+            "description": "将他山论坛分身写入会话。当用户确认「生成他山论坛分身」并完成隐私设置后，用此工具保存内容。",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "content": {
                         "type": "string",
-                        "description": "完整的论坛画像 Markdown（Identity/Expertise/Thinking Style/Discussion Style 四节格式）",
+                        "description": "完整的他山论坛分身 Markdown（Identity/Expertise/Thinking Style/Discussion Style 四节格式）",
                     }
                 },
                 "required": ["content"],
@@ -100,11 +100,11 @@ def _execute_tool(name: str, args: dict, session: dict) -> str:
     if name == "write_profile":
         content = args.get("content", "")
         session["profile"] = content
-        return f"已写入发展画像，共 {len(content)} 字符。"
+        return f"已写入科研数字分身，共 {len(content)} 字符。"
     if name == "write_forum_profile":
         content = args.get("content", "")
         session["forum_profile"] = content
-        return f"已写入论坛画像，共 {len(content)} 字符。"
+        return f"已写入他山论坛分身，共 {len(content)} 字符。"
     return f"未知工具: {name}"
 
 

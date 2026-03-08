@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from agent import run_agent
 from sessions import get_or_create, get, reset
 
-app = FastAPI(title="他山画像 Web API")
+app = FastAPI(title="他山数字分身 Web API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -70,7 +70,7 @@ async def chat_sync(req: ChatRequest) -> ChatResponse:
 
 @app.get("/profile/{session_id}")
 async def get_profile(session_id: str):
-    """获取当前会话的发展画像和论坛画像内容"""
+    """获取当前会话的科研数字分身和他山论坛分身内容"""
     session = get(session_id)
     if not session:
         raise HTTPException(status_code=404, detail="会话不存在或已过期")
@@ -82,7 +82,7 @@ async def get_profile(session_id: str):
 
 @app.get("/download/{session_id}")
 async def download_profile(session_id: str):
-    """下载发展画像 .md 文件"""
+    """下载科研数字分身 .md 文件"""
     session = get(session_id)
     if not session:
         raise HTTPException(status_code=404, detail="会话不存在或已过期")
@@ -100,7 +100,7 @@ async def download_profile(session_id: str):
 
 @app.get("/download/{session_id}/forum")
 async def download_forum_profile(session_id: str):
-    """下载论坛画像 .md 文件"""
+    """下载他山论坛分身 .md 文件"""
     session = get(session_id)
     if not session:
         raise HTTPException(status_code=404, detail="会话不存在或已过期")
@@ -109,7 +109,7 @@ async def download_forum_profile(session_id: str):
 
     content = session.get("forum_profile", "")
     if not content:
-        raise HTTPException(status_code=404, detail="尚未生成论坛画像")
+        raise HTTPException(status_code=404, detail="尚未生成他山论坛分身")
 
     return Response(
         content=content.encode("utf-8"),

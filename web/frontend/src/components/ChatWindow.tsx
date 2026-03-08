@@ -127,7 +127,7 @@ export function ChatWindow() {
     return (
       <div className="profile-page">
         <header className="profile-page-header">
-          <h1>画像</h1>
+          <h1>科研数字分身</h1>
           <button
             type="button"
             className="back-btn"
@@ -149,14 +149,14 @@ export function ChatWindow() {
     <div className="chat-layout">
       <div className="chat-window">
         <header className="chat-header">
-          <h1>他山画像助手</h1>
+          <h1>他山数字分身助手</h1>
           <div className="header-actions">
             <button
               type="button"
               className="view-profile-btn"
               onClick={() => setView("profile")}
             >
-              查看画像
+              查看数字分身
             </button>
             <button
               type="button"
@@ -172,8 +172,8 @@ export function ChatWindow() {
         <div className="messages">
           {messages.length === 0 && (
             <div className="welcome">
-              <p>你好，我是科研发展画像采集助手。</p>
-              <p>你可以说「帮我建立画像」开始，或直接描述你的需求。</p>
+              <p>你好，我是科研数字分身采集助手。</p>
+              <p>你可以说「帮我建立分身」开始，或直接描述你的需求。</p>
             </div>
           )}
           {messages

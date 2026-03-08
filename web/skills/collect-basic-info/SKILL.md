@@ -32,7 +32,7 @@ A. 有，我想先从 AI 记忆中提取信息
 B. 没有，或者不需要，直接开始填写
 ```
 
-- 选 **A**：读取并执行 `.cursor/skills/generate-ai-memory-prompt/SKILL.md`，
+- 选 **A**：读取并执行 `generate-ai-memory-prompt` Skill，
   完成 AI 记忆导入后，再回到此 Skill 补充剩余空白字段
 - 选 **B**：继续下一步
 
