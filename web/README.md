@@ -14,8 +14,21 @@ cp .env.example .env
 
 `.env` 已加入 `.gitignore`，不会提交到仓库。
 
-### 2. 启动后端
+### 2. 一键启动前后端
 
+在 `web/` 目录下执行：
+
+```bash
+./start.sh
+```
+
+脚本会安装后端与前端依赖，并同时启动后端（http://localhost:8000）和前端（http://localhost:5173）。浏览器访问 http://localhost:5173 即可使用。退出时按 Ctrl+C 会同时关闭前后端。
+
+### 3. 分别启动（可选）
+
+若需单独启动后端或前端：
+
+**后端：**
 ```bash
 cd web/backend
 pip install -r requirements.txt
@@ -24,8 +37,7 @@ uvicorn main:app --reload --port 8000
 
 若 8000 端口被占用，可改用 `--port 8001`，并修改 `web/frontend/vite.config.ts` 中的 proxy target。
 
-### 3. 启动前端
-
+**前端（新终端）：**
 ```bash
 cd web/frontend
 npm install

@@ -23,12 +23,9 @@
 # 1. 配置 .env（在 web/backend 下创建 .env，填入 API Key）
 cd web/backend && cp .env.example .env  # 编辑 .env
 
-# 2. 启动后端
-pip install -r requirements.txt && uvicorn main:app --reload --port 8000
-
-# 3. 启动前端（新终端）
-cd web/frontend && npm install && npm run dev
-# 访问 http://localhost:5173
+# 2. 一键启动前后端（在 web 目录下执行）
+cd web && ./start.sh
+# 后端 http://localhost:8000，前端 http://localhost:5173
 ```
 
 可用话术示例：
