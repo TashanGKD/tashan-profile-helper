@@ -1,5 +1,6 @@
 """LLM tool calling + agentic loop，支持多 AI 提供商"""
 import json
+from datetime import date
 
 from config import LLM_PROVIDER, get_api_key
 from llm_client import create_client, get_model
@@ -129,6 +130,11 @@ def run_agent(
         return
 
     model = get_model()
+    today_str = date.today().strftime("%Y-%m-%d")
+    system_content = (
+        META_SYSTEM_PROMPT
+        + f"\n\n**当前日期**：{today_str}（写入画像时，创建时间、最后更新、unnamed 文件名等请使用此日期）"
+    )
     messages = session["messages"].copy()
     messages.append({"role": "user", "content": user_message})
 
@@ -136,7 +142,7 @@ def run_agent(
     for _ in range(max_iterations):
         response = client.chat.completions.create(
             model=model,
-            messages=[{"role": "system", "content": META_SYSTEM_PROMPT}] + messages,
+            messages=[{"role": "system", "content": system_content}] + messages,
             tools=TOOLS,
             tool_choice="auto",
         )

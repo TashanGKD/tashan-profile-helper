@@ -1,5 +1,6 @@
 """内存会话管理：session_id → {messages, profile}"""
 import uuid
+from datetime import date
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -7,7 +8,8 @@ TEMPLATE_PATH = REPO_ROOT / "profiles" / "_template.md"
 
 
 def _load_template() -> str:
-    return TEMPLATE_PATH.read_text(encoding="utf-8")
+    today_str = date.today().strftime("%Y-%m-%d")
+    return TEMPLATE_PATH.read_text(encoding="utf-8").replace("YYYY-MM-DD", today_str)
 
 
 _sessions: dict[str, dict] = {}
